@@ -1,0 +1,46 @@
+{
+
+  "manifest_version": 2,
+  "name": "Borderify",
+  "version": "1.0",
+
+  "description": "Adds a red border to all webpages matching mozilla.org.",
+  "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/beastify",
+
+  "icons": {
+     "48": "images/beasts-48.png"
+   },
+
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "ffplugin123@aloha.cz"
+    }
+  },
+
+  "content_scripts": [
+    {
+      //"matches": ["*://*.mozilla.org/*"],
+      "matches": ["*://*.novinky.cz/*"],
+      "js": ["borderify.js"],
+      "css": ["content_scripts/beastify.css"]
+    }
+  ],
+
+
+  "permissions": [
+    "activeTab"
+  ],
+
+  "browser_action": {
+    "default_icon": "images/beasts-48.png",
+    "default_title": "Beastify",
+    "default_popup": "popup/choose_beast.html"
+  },
+
+  "web_accessible_resources": [
+    "beasts/frog.jpeg",
+    "beasts/turtle.jpeg",
+    "beasts/snake.jpeg"
+  ]
+
+}
